@@ -13,6 +13,10 @@ class CreatePersonalAccessTokensTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('personal_access_tokens')) {
+            // テーブルが存在していればリターン
+            return;
+        }
         Schema::create('personal_access_tokens', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->morphs('tokenable');
@@ -31,6 +35,10 @@ class CreatePersonalAccessTokensTable extends Migration
      */
     public function down()
     {
+        if (Schema::hasTable('personal_access_tokens')) {
+            // テーブルが存在していればリターン
+            return;
+        }
         Schema::dropIfExists('personal_access_tokens');
     }
 }
