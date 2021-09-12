@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
 
     protected $middleware = [
         \App\Http\Middleware\ForceHttps::class, // 追加
-    ;
+    ];
 
     /**
      * Define the application's command schedule.
